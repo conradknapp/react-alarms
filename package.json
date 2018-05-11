@@ -4,6 +4,11 @@
   "main": "server.js",
   "author": "Conrad Knapp",
   "license": "MIT",
+  "engines": {
+    "node": "8.11.1",
+    "npm": "5.6.0",
+    "yarn": "1.6.0"
+  },
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js",
