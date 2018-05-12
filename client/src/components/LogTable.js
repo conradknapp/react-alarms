@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { onFetchLogs } from '../actions';
+import { formatDate } from '../helpers';
 
 class LogTable extends React.Component {
   componentDidMount() {
@@ -11,19 +12,19 @@ class LogTable extends React.Component {
   render() {
     const { logs } = this.props;
     if (!logs) return <div>Loading</div>;
-    console.log(logs);
+
     return (
       <div className="table">
         <div className="table-header">
-          <span style={{ width: "30%" }}>Description</span>
-          <span style={{ width: "20%" }}>Created Date</span>
-          <span style={{ width: "20%" }}>Id</span>
+          <span className="table-header__description">Description</span>
+          <span className="table-header__created-date">Created Date</span>
+          <span className="table-header__id">Id</span>
         </div>
       {logs.map(log => (
         <div key={log._id} className="table-row">
-          <span style={{ width: "30%" }}>{log.alarmDeviceId.description}</span>
-          <span style={{ width: "20%" }}>{log.createdDate}</span>
-          <span style={{ width: "20%" }}>{log._id}</span>
+          <span className="table-row__description">{log.alarmDeviceId.description}</span>
+          <span className="table-row__created-date">{formatDate(log.createdDate)}</span>
+          <span className="table-row__id">{log._id}</span>
         </div>
       ))}
       </div>

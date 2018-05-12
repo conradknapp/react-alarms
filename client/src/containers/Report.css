@@ -7,6 +7,18 @@
   justify-content: space-between;
 }
 
+.table-header__description,
+.table-row__description {
+  width: 30%;
+}
+
+.table-header__created-date,
+.table-header__id,
+.table-row__created-date,
+.table-row__id {
+  width: 20%;
+}
+
 .table-row {
   display: flex;
   justify-content: space-between;
