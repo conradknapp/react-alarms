@@ -12,8 +12,4 @@ exports.alarms_create_alarm = async (req, res, next) => {
   });
   await alarmDevice.save();
   await res.status(201).json(alarmDevice);
-  // await res.status(201).json({
-  //   success: true,
-  //   message: "Alarm device created successfully"
-  // })
 }

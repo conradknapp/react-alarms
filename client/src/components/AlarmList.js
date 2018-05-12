@@ -16,6 +16,7 @@ class AlarmList extends React.Component {
       <ul>
         {alarms.map(alarm =>
           <Alarm
+            id={alarm._id}
             key={alarm._id}
             description={alarm.description}
           />)}

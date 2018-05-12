@@ -1,17 +1,16 @@
 import React from 'react';
+import './Report.css';
 
-import LogForm from '../components/LogForm';
-import Table from '../components/Table';
 import Navbar from '../components/Navbar';
-import LogList from '../components/LogList';
+import LogForm from '../components/LogForm';
+import LogTable from '../components/LogTable';
 
 const Report = () => {
   return (
     <div className="App">
       <Navbar />
       <LogForm />
-      <Table />
-      <LogList />
+      <LogTable />
     </div>
   );
 };

@@ -1,7 +1,29 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-const Alarm = ({ description, id }) => (
-  <li key={id}>{description}</li>
-);
+import { onCreateLog } from '../actions';
 
-export default Alarm;
+class Alarm extends React.Component {
+  state = {
+    activated: false
+  };
+
+  handleActivate = id => {
+    this.props.onCreateLog(id);
+    this.setState(prevState => ({
+      activated: !prevState.activated
+    }));
+  }
+
+  render() {
+    const { description, id } = this.props;
+    return (
+      <li>
+        <h3>{description}</h3>
+        <button onClick={() => this.handleActivate(id)}>{this.state.activated ? "Activated!" : "Activate"}</button>
+      </li>
+    );
+  }
+};
+
+export default connect(null, { onCreateLog })(Alarm);
