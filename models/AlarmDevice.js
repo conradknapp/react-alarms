@@ -3,8 +3,7 @@ const Schema = mongoose.Schema;
 
 const AlarmDeviceSchema = new Schema({
   id: {
-    type: Schema.Types.ObjectId,
-    required: true
+    type: Schema.Types.ObjectId
   },
   description: {
     type: String,
@@ -12,4 +11,4 @@ const AlarmDeviceSchema = new Schema({
   }
 });
 
-module.exports = mongoose.model('alarmDevice', AlarmDeviceSchema);
+module.exports = mongoose.model('AlarmDevice', AlarmDeviceSchema);

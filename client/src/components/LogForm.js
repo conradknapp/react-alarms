@@ -3,15 +3,19 @@ import React, { Component } from 'react';
 export default class LogForm extends Component {
   state = {};
 
-  handleSubmit = () => {
+  handleSubmit = evt => {
+    evt.preventDefault();
     console.log('submitted');
   }
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <input type="text"/>
-        <button type="submit">Submit</button>
+        <input
+          type="search"
+          placeholder="Search Alarm Logs"
+        />
+        <button type="submit">Search</button>
       </form>
     );
   }

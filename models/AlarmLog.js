@@ -20,4 +20,4 @@ AlarmLogSchema.index({
   "$**": "text"
 });
 
-module.exports = mongoose.model('alarmLog', AlarmLogSchema);
+module.exports = mongoose.model('AlarmLog', AlarmLogSchema);

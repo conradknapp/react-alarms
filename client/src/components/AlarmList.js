@@ -1,13 +1,29 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { onFetchAlarms } from '../actions';
 
-const AlarmList = () => {
-  return (
-    <ul>
-      <li>Alarm 1</li>
-      <li>Alarm 2</li>
-      <li>Alarm 3</li>
-    </ul>
-  );
+import Alarm from './Alarm';
+
+class AlarmList extends React.Component {
+  componentDidMount() {
+    this.props.onFetchAlarms();
+  }
+
+  render() {
+    const { alarms } = this.props;
+    if (!alarms) return <div>Loading</div>;
+    return (
+      <ul>
+        {alarms.map(alarm =>
+          <Alarm
+            key={alarm._id}
+            description={alarm.description}
+          />)}
+      </ul>
+    );
+  }
 };
 
-export default AlarmList;
+const mapStateToProps = ({ alarms }) => ({ alarms });
+
+export default connect(mapStateToProps, { onFetchAlarms })(AlarmList);

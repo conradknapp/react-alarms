@@ -1,26 +1,14 @@
 const mongoose = require("mongoose");
 const AlarmLog = require("../models/AlarmLog");
 
-exports.logs_get_all = (req, res, next) => {
-  // AlarmLog.find()
-  //   .sort({ date: "desc" })
-  //   .exec()
-  //   .then(docs => {
-  //     const response = {
-  //       posts: docs.map(doc => {
-  //         return {
-
-  //         };
-  //       })
-  //     };
-  //     res.status(200).json(response);
-  //   })
-  //   .catch(err => {
-  //     console.error(err);
-  //     res.status(500).json({ error: err });
-  //   });
+exports.logs_get_all = async (req, res, next) => {
+  const allLogs = await AlarmLog.find()
+    .sort({ date: "desc" });
+  res.json(allLogs);
 }
 
-exports.logs_create_log = (req, res, next) => {
-  // AlarmLog.save();
+exports.logs_create_log = async (req, res, next) => {
+  // const newLog = await new AlarmLog({
+
+  // });
 }
