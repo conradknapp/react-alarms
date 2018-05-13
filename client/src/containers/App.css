@@ -1,11 +1,14 @@
-ul {
-  list-style: none;
-}
-
 /* App.js */
 
-.App {
+.app {
   text-align: center;
+}
+
+/* Tagline.js */
+
+.app-tagline {
+  background: lightskyblue;
+  padding: 1em;
 }
 
 /* Alarm.js */
@@ -30,15 +33,25 @@ ul {
 
 /* AlarmForm.js */
 
-.alarm-input__valid {
+.alarm-form {
+  background: lightgray;
+  padding: 1em;
+}
+
+.alarm-form__header {
+  text-decoration: underline;
+  margin-top: 0;
+}
+
+.alarm-form__valid {
   border: 1px solid lawngreen;
 }
 
-.alarm-input__invalid {
+.alarm-form__invalid {
   border: 1px solid red;
 }
 
-.alarm-input__error-message {
+.alarm-form__error-message {
   color: red;
 }
 

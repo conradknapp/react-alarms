@@ -8,9 +8,10 @@ class AlarmForm extends React.Component {
   state = {};
 
   myInput = ({ input, meta: { touched, error }}) => {
-    const inputClass = touched && error ? "alarm-input__invalid" : "alarm-input__valid";
+    const inputClass = touched && error ? "alarm-form__invalid" : "alarm-form__valid";
     return (
       <React.Fragment>
+        <h3 className="alarm-form__header">Create an Alarm</h3>
         <input
           className={inputClass}
           type="text"
@@ -23,7 +24,7 @@ class AlarmForm extends React.Component {
         >
           Add Alarm
         </button>
-        {touched ? error && <p className="alarm-input__error-message">{error}</p> : ""}
+        {touched ? error && <p className="alarm-form__error-message">{error}</p> : ""}
         <div onChange={this.handleInputChange}>
           <input type="radio" name="category" value="window" /> Window
           <input type="radio" name="category" value="door" /> Door
@@ -50,7 +51,10 @@ class AlarmForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleFormSubmit}>
+      <form
+        onSubmit={this.handleFormSubmit}
+        className="alarm-form"
+      >
         <Field
           onChange={this.handleInputChange}
           name="description"

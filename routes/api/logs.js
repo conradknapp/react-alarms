@@ -7,8 +7,8 @@ const LogsController = require('../../controllers/logs');
 // @access Public
 router.get("/", LogsController.logs_get_all);
 
-// @route GET api/logs
-// @desc Creates new log of alarm device
+// @route POST api/logs
+// @desc Creates new log from activated alarm device
 // @access Public
 router.post("/", LogsController.logs_create_log);
 

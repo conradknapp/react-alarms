@@ -25,19 +25,22 @@ class LogTable extends React.Component {
   render() {
     const { logs, filteredLogs } = this.props;
     const LOGS = filteredLogs.length ? filteredLogs : logs;
-    if (!logs) return <div>Loading</div>;
+    if (!LOGS) return <div>Loading</div>;
 
     return (
       <div className="table">
       {this.displayResultsCount()}
         <div className="table-header">
           <Sort logs={LOGS} sortKey={"DESC"} className="table-header__description">Description</Sort>
+          <Sort logs={LOGS} sortKey={"ALERT"}
+          className="table-header__alert">From (Alert Device)</Sort>
           <Sort logs={LOGS} sortKey={"DATE"} className="table-header__created-date">Created Date</Sort>
           <Sort logs={LOGS} sortKey={"ID"} className="table-header__id">Id</Sort>
         </div>
       {LOGS.map(log => (
         <div key={log._id} className="table-row">
           <span className="table-row__description">{log.alarmDeviceId.description}</span>
+          <span className="table-row__alert">{log.alertDeviceId.description}</span>
           <span className="table-row__created-date">{formatDate(log.createdDate)}</span>
           <span className="table-row__id">{log._id}</span>
         </div>

@@ -4,6 +4,7 @@ import * as actionTypes from "./types";
 
 const ALARMS_URL = "/api/alarms";
 const LOGS_URL = "/api/logs";
+const ALERTS_URL = "/api/alerts";
 
 export const onFetchAlarms = async () => {
   const response = await axios.get(ALARMS_URL);
@@ -33,8 +34,12 @@ export const onFetchLogs = async () => {
   };
 };
 
-export const onCreateLog = async values => {
-  const response = await axios.post(LOGS_URL, { "alarmDeviceId": values });
+export const onCreateLog = async (alarmId, alertId) => {
+  const response = await axios.post(LOGS_URL,
+  {
+      "alarmDeviceId": alarmId,
+      "alertDeviceId": alertId
+  });
 
   return {
     type: actionTypes.CREATE_LOG,
@@ -53,3 +58,12 @@ export const onSearchLogs = (searchTerm, logs) => {
     payload: filteredLogs
   };
 }
+
+export const onFetchAlerts = async () => {
+  const response = await axios.get(ALERTS_URL);
+
+  return {
+    type: actionTypes.FETCH_ALERTS,
+    payload: response
+  };
+};

@@ -6,6 +6,7 @@ require('dotenv').config({ path: 'variables.env' });
 
 const alarmRoutes = require('./routes/api/alarms');
 const logRoutes = require('./routes/api/logs');
+const alertRoutes = require('./routes/api/alerts');
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/api/alarms', alarmRoutes);
 app.use('/api/logs', logRoutes);
+app.use('/api/alerts', alertRoutes);
 
 const PORT = process.env.PORT || 4444;
 

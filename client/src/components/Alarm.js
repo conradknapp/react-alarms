@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { onCreateLog } from '../actions';
+import Alert from './Alert';
+import { onCreateLog, onFetchAlerts } from '../actions';
 
 class Alarm extends React.Component {
   state = {
@@ -9,17 +10,20 @@ class Alarm extends React.Component {
   };
 
   componentDidMount() {
-    const booleanId = localStorage.getItem(this.props.id);
-    const activated = JSON.parse(booleanId);
+    this.props.onFetchAlerts();
+    const toggledStatus = localStorage.getItem(this.props.id);
+    const activated = JSON.parse(toggledStatus);
     this.setState({ activated });
   }
 
-  handleActivate = id => {
-    this.props.onCreateLog(id);
+  handleActivateAlarm = (alarmId, alertId) => {
+    if (!this.state.activated) {
+      this.props.onCreateLog(alarmId, alertId);
+    }
     this.setState(prevState => ({
       activated: !prevState.activated
     }), () => {
-      localStorage.setItem(id, JSON.stringify(this.state.activated));
+      localStorage.setItem(alarmId, JSON.stringify(this.state.activated));
     });
   }
 
@@ -36,7 +40,7 @@ class Alarm extends React.Component {
   }
 
   render() {
-    const { description, id, category } = this.props;
+    const { description, id, category, alerts } = this.props;
 
     return (
       <li className="alarm">
@@ -47,19 +51,30 @@ class Alarm extends React.Component {
         />
         <h3>{description}</h3>
         <div>
-          {(category === "door" || "window") && <button onClick={() => this.handleActivate(id)}>
-            <img className="alarm-button__icon" src="./icons/fire.svg" alt=""/>
+        {alerts.map(alert =>
+          <Alert
+            key={alert._id}
+            description={alert.description}
+            id={alert._id}
+            category={category}
+            handleActivateAlarm={() => this.handleActivateAlarm(id, alert._id)}
+          />)}
+         {/* <Alert handleActivateAlarm={() => this.handleActivateAlarm(id)}/> */}
+          {/* {(category === "door" || "window") && <button onClick={() => this.handleActivateAlarm(id)}>
+            <img className="alarm-button__icon" src="./icons/fire.svg" alt="" />
           </button>}
-          {(category !== "pipes") && <button onClick={() => this.handleActivate(id)}>
-            <img className="alarm-button__icon" src="./icons/thief.svg" alt=""/>
+          {(category !== "pipes") && <button onClick={() => this.handleActivateAlarm(id)}>
+            <img className="alarm-button__icon" src="./icons/thief.svg" alt="" />
           </button>}
-          {category === "pipes" && <button onClick={() => this.handleActivate(id)}>
-            <img className="alarm-button__icon" src="./icons/leak.svg" alt=""/>
-          </button>}
+          {category === "pipes" && <button onClick={() => this.handleActivateAlarm(id)}>
+            <img className="alarm-button__icon" src="./icons/leak.svg" alt="" />
+          </button>} */}
         </div>
       </li>
     );
   }
 };
 
-export default connect(null, { onCreateLog })(Alarm);
+const mapStateToProps = state => state;
+
+export default connect(mapStateToProps, { onCreateLog, onFetchAlerts })(Alarm);

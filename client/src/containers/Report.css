@@ -14,8 +14,10 @@
 
 .table-header__created-date,
 .table-header__id,
+.table-header__alert,
 .table-row__created-date,
-.table-row__id {
+.table-row__id,
+.table-row__alert {
   width: 20%;
 }
 

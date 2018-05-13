@@ -17,7 +17,7 @@ class Report extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="app">
         <Navbar />
         <LogForm
           handleInputChange={this.handleInputChange}

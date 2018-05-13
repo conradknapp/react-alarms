@@ -13,11 +13,12 @@ const AlarmLogSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'AlarmDevice',
     required: true
+  },
+  alertDeviceId: {
+    type: Schema.Types.ObjectId,
+    ref: 'AlertDevice',
+    required: true
   }
-});
-
-AlarmLogSchema.index({
-  "$**": "text"
 });
 
 module.exports = mongoose.model('AlarmLog', AlarmLogSchema);
