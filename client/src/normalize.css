@@ -192,8 +192,10 @@ button,
 [type="button"],
 [type="reset"],
 [type="submit"] {
-  -webkit-appearance: button;
-  appearance: button;
+  /* -webkit-appearance: button; */
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: 0;
 }
 
 /**
