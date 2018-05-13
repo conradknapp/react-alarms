@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Sort from './Sort';
 
 import { onFetchLogs } from '../actions';
 import { formatDate } from '../helpers';
@@ -30,9 +31,9 @@ class LogTable extends React.Component {
       <div className="table">
       {this.displayResultsCount()}
         <div className="table-header">
-          <span className="table-header__description">Description</span>
-          <span className="table-header__created-date">Created Date</span>
-          <span className="table-header__id">Id</span>
+          <Sort logs={LOGS} sortKey={"DESC"} className="table-header__description">Description</Sort>
+          <Sort logs={LOGS} sortKey={"DATE"} className="table-header__created-date">Created Date</Sort>
+          <Sort logs={LOGS} sortKey={"ID"} className="table-header__id">Id</Sort>
         </div>
       {LOGS.map(log => (
         <div key={log._id} className="table-row">

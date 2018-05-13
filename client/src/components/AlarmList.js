@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { onFetchAlarms } from '../actions';
 
 import Alarm from './Alarm';
+import Spinner from './Spinner';
 
 class AlarmList extends React.Component {
   componentDidMount() {
@@ -11,7 +12,7 @@ class AlarmList extends React.Component {
 
   render() {
     const { alarms } = this.props;
-    if (!alarms) return <div>Loading</div>;
+    if (!alarms) return <Spinner />;
 
     return (
       <ul className="alarm-list">
