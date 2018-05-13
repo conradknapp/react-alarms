@@ -11,7 +11,7 @@ class AlarmForm extends React.Component {
     const inputClass = touched && error ? "alarm-form__invalid" : "alarm-form__valid";
     return (
       <React.Fragment>
-        <h3 className="alarm-form__header">Create an Alarm</h3>
+        <h2 className="alarm-form__title">Create an Alarm</h2>
         <input
           className={inputClass}
           type="text"
@@ -29,6 +29,7 @@ class AlarmForm extends React.Component {
           onChange={this.handleInputChange}
           className="alarm-form__radio-buttons"
         >
+          <h3 className="alarm-form__radio-buttons__title">Select What To Monitor</h3>
           <input type="radio" name="category" value="window" /> Window
           <input type="radio" name="category" value="door" /> Door
           <input type="radio" name="category" value="fence" /> Fence

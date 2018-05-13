@@ -10,14 +10,17 @@ class LogForm extends React.Component {
     const debounceSearch = debounce(() => onSearchLogs(searchTerm, logs), 750);
 
     return (
-      <form>
-        <input
-          type="search"
-          placeholder="Search Alarm Logs"
-          onChange={handleInputChange}
-          onKeyUp={debounceSearch}
-        />
-      </form>
+      <div className="log-form__container">
+        <h2 className="log-form__title">Browse Past Alerts</h2>
+        <form className="log-form">
+          <input
+            type="search"
+            placeholder="Search Logs"
+            onChange={handleInputChange}
+            onKeyUp={debounceSearch}
+          />
+        </form>
+      </div>
     );
   }
 }

@@ -1,5 +1,23 @@
+/* LogForm.js */
+
+.log-form__container {
+  margin: 0;
+  background: lightgray;
+}
+
+.log-form {
+  padding-bottom: 1em;
+}
+
+.log-form__title {
+  margin: 0;
+  padding: 0.75em;
+}
+
+/* LogTable.js */
+
 .table {
-  padding: 2em;
+  padding: 1em 2em 2em 2em;
 }
 
 .table-header {
@@ -30,6 +48,7 @@
 }
 
 .table-header__result-count {
+  padding: 0;
   margin: 0;
   margin-bottom: 1em;
 }

@@ -43,7 +43,7 @@
   padding: 1em;
 }
 
-.alarm-form__header {
+.alarm-form__title {
   text-decoration: underline;
   margin-top: 0;
 }
@@ -58,14 +58,20 @@
 
 .alarm-form__error-message {
   color: red;
+  margin: 0;
+  margin-top: 0.5em;
 }
 
 .alarm-form__radio-buttons {
-  padding-top: 1em;
+  padding-top: 0.1em;
 }
 
 .alarm-form__radio-buttons > * {
   margin-left: 1em;
+}
+
+.alarm-form__radio-buttons__title {
+  padding: 0;
 }
 
 /* AlarmList.js */
@@ -76,13 +82,13 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   align-items: stretch;
-  margin-bottom: 2em;
+  background: rgba(85, 107, 47, 0.2);
 }
 
 /* Media Queries */
 
 @media (min-width: 900px) {
   .alarm-list {
-    width: 70%;
+    width: 80%;
   }
 }
