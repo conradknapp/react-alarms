@@ -14,7 +14,7 @@ class AlarmList extends React.Component {
     if (!alarms) return <div>Loading</div>;
 
     return (
-      <ul>
+      <ul className="alarm-list">
         {alarms.map(alarm =>
           <Alarm
             id={alarm._id}

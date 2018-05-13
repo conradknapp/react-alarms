@@ -1,15 +1,17 @@
-.App {
-  text-align: center;
-}
-
 ul {
   list-style: none;
+}
+
+/* App.js */
+
+.App {
+  text-align: center;
 }
 
 /* Alarm.js */
 
 .alarm {
-  margin-top: 1em;
+  padding-top: 2em;
 }
 
 .alarm-icon {
@@ -32,4 +34,14 @@ ul {
 
 .alarm-input__error-message {
   color: red;
+}
+
+/* AlarmList.js */
+
+.alarm-list {
+  margin: 0 auto;
+  padding: 1.5em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  align-items: stretch;
 }
