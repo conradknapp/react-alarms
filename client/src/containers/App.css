@@ -46,6 +46,8 @@
 .alarm-form__title {
   text-decoration: underline;
   margin-top: 0;
+  letter-spacing: 1px;
+  font-weight: 300;
 }
 
 .alarm-form__valid {

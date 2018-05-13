@@ -11,7 +11,7 @@ class AlarmForm extends React.Component {
     const inputClass = touched && error ? "alarm-form__invalid" : "alarm-form__valid";
     return (
       <React.Fragment>
-        <h2 className="alarm-form__title">Create an Alarm</h2>
+        <h2 className="alarm-form__title">Create a Home Alarm</h2>
         <input
           className={inputClass}
           type="text"
