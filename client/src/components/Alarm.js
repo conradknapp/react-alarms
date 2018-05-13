@@ -22,6 +22,8 @@ class Alarm extends React.Component {
       return './icons/door.svg';
     } else if (category === 'fence') {
       return './icons/fence.svg';
+    } else if (category === 'pipes') {
+      return './icons/pipes.svg';
     }
   }
 
@@ -35,9 +37,20 @@ class Alarm extends React.Component {
           alt={category}
         />
         <h3>{description}</h3>
-        <button onClick={() => this.handleActivate(id)}>
+        <div>
+          {(category === "door" || "window") && <button>
+            <img className="alarm-button__icon" src="./icons/fire.svg" alt=""/>
+          </button>}
+          {(category !== "pipes") && <button>
+            <img className="alarm-button__icon" src="./icons/thief.svg" alt=""/>
+          </button>}
+          {category === "pipes" && <button>
+            <img className="alarm-button__icon" src="./icons/leak.svg" alt=""/>
+          </button>}
+        </div>
+        {/* <button onClick={() => this.handleActivate(id)}>
           {this.state.activated ? "Activated!" : "Activate"}
-        </button>
+        </button> */}
       </li>
     );
   }

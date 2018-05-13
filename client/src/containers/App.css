@@ -16,6 +16,10 @@ ul {
   max-height: 3em;
 }
 
+.alarm-button__icon {
+  height: 30px;
+}
+
 /* AlarmForm.js */
 
 .alarm-input__valid {

@@ -27,6 +27,7 @@ class AlarmForm extends React.Component {
           <input type="radio" name="category" value="window" /> Window
           <input type="radio" name="category" value="door" /> Door
           <input type="radio" name="category" value="fence" /> Fence
+          <input type="radio" name="category" value="pipes" /> Pipes
         </div>
       </React.Fragment>
     )
