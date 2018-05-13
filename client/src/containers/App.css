@@ -17,14 +17,14 @@
   padding-top: 2em;
 }
 
-.alarm-icon {
-  max-height: 3em;
-  opacity: 0.4;
-  filter: grayscale(100%);
-}
-
+.alarm-icon,
 .alarm-icon__activated {
   max-height: 3em;
+}
+
+.alarm-icon {
+  opacity: 0.4;
+  filter: grayscale(100%);
 }
 
 .alarm-button__icon {
@@ -63,4 +63,13 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   align-items: stretch;
+  margin-bottom: 2em;
+}
+
+/* Media Queries */
+
+@media (min-width: 900px) {
+  .alarm-list {
+    width: 70%;
+  }
 }
