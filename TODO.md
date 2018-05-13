@@ -2,6 +2,7 @@
 
 ### Functionality
 
+* When clicking on an alarm, have it save the fact that it's on by adding that state to local storage
 * Add ability to download log report (and export to csv, pdf)
 * Add paging to the alarm device page/report page
 
@@ -9,12 +10,13 @@
 
 ### UI
 
+* Make icon red and blink whenever it is triggered
 * ~~Display number of matches for search term on report page~~
 * ~~Add icons to alarm devices (depending on their category)~~
 * ~~Provide error message and make input border red if you try to submit an empty input~~
-* Implement responsive design (so it works on mobile/desktop)
 * ~~Add debounce function to search field on report page~~
-* Add caching for search form
+
+* Implement responsive design (so it works on mobile/desktop)
 
 - Add flash messaging (upon adding an alarm device an upon triggering an alarm; see screenshot for message ideas)
 

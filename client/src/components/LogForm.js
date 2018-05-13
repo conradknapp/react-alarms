@@ -17,7 +17,6 @@ class LogForm extends React.Component {
           onChange={handleInputChange}
           onKeyUp={debounceSearch}
         />
-        <button type="submit">Search</button>
       </form>
     );
   }

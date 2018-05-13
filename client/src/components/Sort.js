@@ -2,7 +2,7 @@ import React from 'react';
 import sortBy from 'lodash.sortby';
 
 const SORTS = {
-  DESC: list => sortBy(list, "description"),
+  DESC: list => sortBy(list, "alarmDeviceId.description"),
   DATE: list => sortBy(list, "createdDate").reverse(),
   ID: list => sortBy(list, "_id").reverse(),
 };

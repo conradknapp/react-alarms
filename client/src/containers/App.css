@@ -16,6 +16,12 @@ ul {
 
 .alarm-icon {
   max-height: 3em;
+  opacity: 0.4;
+  filter: grayscale(100%);
+}
+
+.alarm-icon__activated {
+  max-height: 3em;
 }
 
 .alarm-button__icon {

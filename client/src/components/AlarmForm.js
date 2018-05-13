@@ -14,6 +14,7 @@ class AlarmForm extends React.Component {
         <input
           className={inputClass}
           type="text"
+          placeholder="Add Description"
           {...input}
         />
         <button
@@ -53,7 +54,6 @@ class AlarmForm extends React.Component {
         <Field
           onChange={this.handleInputChange}
           name="description"
-          placeholder="Add Description"
           component={this.myInput}
         />
       </form>
