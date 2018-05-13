@@ -25,11 +25,15 @@ class AlarmForm extends React.Component {
           Add Alarm
         </button>
         {touched ? error && <p className="alarm-form__error-message">{error}</p> : ""}
-        <div onChange={this.handleInputChange}>
+        <div
+          onChange={this.handleInputChange}
+          className="alarm-form__radio-buttons"
+        >
           <input type="radio" name="category" value="window" /> Window
           <input type="radio" name="category" value="door" /> Door
           <input type="radio" name="category" value="fence" /> Fence
           <input type="radio" name="category" value="pipes" /> Pipes
+          <input type="radio" name="category" value="stove" /> Stove
         </div>
       </React.Fragment>
     )

@@ -31,7 +31,7 @@ class LogTable extends React.Component {
       <div className="table">
       {this.displayResultsCount()}
         <div className="table-header">
-          <Sort logs={LOGS} sortKey={"DESC"} className="table-header__description">Description</Sort>
+          <Sort logs={LOGS} sortKey={"DESC"} className="table-header__description">Alarm Name</Sort>
           <Sort logs={LOGS} sortKey={"ALERT"}
           className="table-header__alert">From (Alert Device)</Sort>
           <Sort logs={LOGS} sortKey={"DATE"} className="table-header__created-date">Created Date</Sort>

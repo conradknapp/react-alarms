@@ -9,6 +9,7 @@
  */
 
 html {
+  font-family: sans-serif;
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
   text-size-adjust: 100%;
@@ -359,17 +360,44 @@ ul {
   list-style: none;
 }
 
+@font-face {
+  font-family: "MagnetoBold";
+  src: url("./fonts/MagnetoBold.eot");
+  src: url("./fonts/MagnetoBold.eot") format("embedded-opentype"),
+    url("./fonts/MagnetoBold.woff2") format("woff2"),
+    url("./fonts/MagnetoBold.woff") format("woff"),
+    url("./fonts/MagnetoBold.ttf") format("truetype"),
+    url("./fonts/MagnetoBold.svg#MagnetoBold") format("svg");
+}
+
 .navbar,
 .navbar-span {
+  font-family: MagnetoBold;
+  font-size: 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 0;
-  padding: 0 1em;
+  padding: 1em 2em;
   background: #000;
   color: white;
 }
 
 .navbar-span > * {
+  font-family: sans-serif;
   margin-right: 1em;
+  font-size: 1.2rem;
+}
+
+.navbar-logo {
+  margin: 0;
+}
+
+.navbar-tagline {
+  margin: 0;
+  font-style: italic;
+  font-family: sans-serif;
+  font-weight: 100;
+  font-size: 1.1rem;
+  letter-spacing: 3px;
 }

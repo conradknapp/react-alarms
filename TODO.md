@@ -2,6 +2,7 @@
 
 ### Functionality
 
+
 * ~~When clicking on an alarm, have it save the fact that it's on by adding that state to local storage~~
 * Add ability to download log report (and export to csv, pdf)
 * Add paging to the alarm device page/report page
@@ -10,6 +11,7 @@
 
 ### UI
 
+* ~~Get new icon for lock, electricity, furnace~~
 * ~~Make icon red~~ and blink whenever it is triggered
 * ~~Display number of matches for search term on report page~~
 * ~~Add icons to alarm devices (depending on their category)~~

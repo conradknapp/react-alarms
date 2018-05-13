@@ -11,6 +11,11 @@
   padding: 1em;
 }
 
+.app-tagline__header {
+  font-style: italic;
+  font-weight: 100;
+}
+
 /* Alarm.js */
 
 .alarm {
@@ -53,6 +58,14 @@
 
 .alarm-form__error-message {
   color: red;
+}
+
+.alarm-form__radio-buttons {
+  padding-top: 1em;
+}
+
+.alarm-form__radio-buttons > * {
+  margin-left: 1em;
 }
 
 /* AlarmList.js */

@@ -36,6 +36,8 @@ class Alarm extends React.Component {
       return './icons/fence.svg';
     } else if (category === 'pipes') {
       return './icons/pipes.svg';
+    } else if (category === 'stove') {
+      return './icons/stove.svg';
     }
   }
 
