@@ -12,6 +12,7 @@ class AlarmList extends React.Component {
   render() {
     const { alarms } = this.props;
     if (!alarms) return <div>Loading</div>;
+
     return (
       <ul>
         {alarms.map(alarm =>

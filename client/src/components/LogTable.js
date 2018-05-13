@@ -10,7 +10,8 @@ class LogTable extends React.Component {
   }
 
   render() {
-    const { logs } = this.props;
+    const { logs, filteredLogs } = this.props;
+    const LOGS = filteredLogs.length ? filteredLogs : logs;
     if (!logs) return <div>Loading</div>;
 
     return (
@@ -20,7 +21,7 @@ class LogTable extends React.Component {
           <span className="table-header__created-date">Created Date</span>
           <span className="table-header__id">Id</span>
         </div>
-      {logs.map(log => (
+      {LOGS.map(log => (
         <div key={log._id} className="table-row">
           <span className="table-row__description">{log.alarmDeviceId.description}</span>
           <span className="table-row__created-date">{formatDate(log.createdDate)}</span>
@@ -32,6 +33,6 @@ class LogTable extends React.Component {
   }
 };
 
-const mapStateToProps = ({ logs }) => ({ logs });
+const mapStateToProps = state => state;
 
 export default connect(mapStateToProps, { onFetchLogs })(LogTable);

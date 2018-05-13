@@ -40,3 +40,14 @@ export const onCreateLog = async values => {
     payload: response
   };
 };
+
+export const onSearchLogs = (searchTerm, logs) => {
+  const regex = new RegExp(searchTerm, 'gi');
+  const filteredLogs = logs.filter(log => {
+    return log.alarmDeviceId.description.match(regex);
+  });
+  return {
+    type: actionTypes.SEARCH_LOGS,
+    payload: filteredLogs
+  };
+}

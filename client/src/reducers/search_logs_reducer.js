@@ -4,11 +4,9 @@ const initialState = [];
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.FETCH_LOGS:
-      return action.payload.data;
-    case actionTypes.CREATE_LOG:
-      return [ ...state, action.payload.data ];
+    case actionTypes.SEARCH_LOGS:
+      return action.payload;
     default:
       return state;
   }
-};
+}

@@ -1,22 +1,42 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import debounce from "lodash.debounce";
 
-export default class LogForm extends Component {
-  state = {};
+import { onSearchLogs } from '../actions';
 
-  handleSubmit = evt => {
-    evt.preventDefault();
-    console.log('submitted');
+class LogForm extends Component {
+  state = {
+    searchTerm: ""
+  };
+
+  handleInputChange = evt => {
+    const searchTerm = evt.target.value;
+    this.setState({ searchTerm });
+    if (!evt.target.value) {
+      console.log(this.props);
+      console.log(this.state);
+    }
   }
 
   render() {
+    const { searchTerm } = this.state;
+    const { onSearchLogs, logs } = this.props;
+    const debounceSearch = debounce(() => onSearchLogs(searchTerm, logs), 750);
+
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form>
         <input
           type="search"
           placeholder="Search Alarm Logs"
+          onChange={this.handleInputChange}
+          onKeyUp={debounceSearch}
         />
         <button type="submit">Search</button>
       </form>
     );
   }
 }
+
+const mapStateToProps = state => state;
+
+export default connect(mapStateToProps, { onSearchLogs })(LogForm);
