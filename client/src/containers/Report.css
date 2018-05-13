@@ -26,3 +26,8 @@
   background: inherit;
   border: 1px solid rgb(212, 253, 2);
 }
+
+.table-header__result-count {
+  margin: 0;
+  margin-bottom: 1em;
+}

@@ -9,6 +9,18 @@ class LogTable extends React.Component {
     this.props.onFetchLogs();
   }
 
+  displayResultsCount = () => {
+    const { filteredLogs, searchTerm } = this.props;
+    // Check that we have matches and for user input
+    const output =
+      filteredLogs.length && searchTerm.length ?
+        <h3 className="table-header__result-count">
+          {filteredLogs.length} results matching "{searchTerm}"
+        </h3>
+        : null;
+    return output;
+  }
+
   render() {
     const { logs, filteredLogs } = this.props;
     const LOGS = filteredLogs.length ? filteredLogs : logs;
@@ -16,6 +28,7 @@ class LogTable extends React.Component {
 
     return (
       <div className="table">
+      {this.displayResultsCount()}
         <div className="table-header">
           <span className="table-header__description">Description</span>
           <span className="table-header__created-date">Created Date</span>

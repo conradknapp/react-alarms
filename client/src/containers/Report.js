@@ -5,14 +5,30 @@ import Navbar from '../components/Navbar';
 import LogForm from '../components/LogForm';
 import LogTable from '../components/LogTable';
 
-const Report = () => {
-  return (
-    <div className="App">
-      <Navbar />
-      <LogForm />
-      <LogTable />
-    </div>
-  );
+class Report extends React.Component {
+  state = {
+    searchTerm: ""
+  };
+
+  handleInputChange = evt => {
+    const searchTerm = evt.target.value;
+    this.setState({ searchTerm });
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <Navbar />
+        <LogForm
+          handleInputChange={this.handleInputChange}
+          searchTerm={this.state.searchTerm}
+        />
+        <LogTable
+          searchTerm={this.state.searchTerm}
+        />
+      </div>
+    );
+  }
 };
 
 export default Report;
