@@ -15,12 +15,29 @@ class Alarm extends React.Component {
     }));
   }
 
+  insertIcon = category => {
+    if (category === 'window') {
+      return './icons/window.svg';
+    } else if (category === 'door') {
+      return './icons/door.svg';
+    } else if (category === 'fence') {
+      return './icons/fence.svg';
+    }
+  }
+
   render() {
-    const { description, id } = this.props;
+    const { description, id, category } = this.props;
     return (
-      <li>
+      <li className="alarm">
+        <img
+          className="alarm-icon"
+          src={this.insertIcon(category)}
+          alt={category}
+        />
         <h3>{description}</h3>
-        <button onClick={() => this.handleActivate(id)}>{this.state.activated ? "Activated!" : "Activate"}</button>
+        <button onClick={() => this.handleActivate(id)}>
+          {this.state.activated ? "Activated!" : "Activate"}
+        </button>
       </li>
     );
   }

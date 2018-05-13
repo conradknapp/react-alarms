@@ -9,7 +9,9 @@
 
 ### UI
 
-* Provide error message and make input border red if you try to submit an empty input
+* ~~Display number of matches for search term on report page~~
+* ~~Add icons to alarm devices (depending on their category)~~
+* ~~Provide error message and make input border red if you try to submit an empty input~~
 * Implement responsive design (so it works on mobile/desktop)
 * ~~Add debounce function to search field on report page~~
 * Add caching for search form

@@ -20,6 +20,7 @@ class AlarmList extends React.Component {
             id={alarm._id}
             key={alarm._id}
             description={alarm.description}
+            category={alarm.category}
           />)}
       </ul>
     );

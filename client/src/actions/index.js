@@ -14,8 +14,9 @@ export const onFetchAlarms = async () => {
   };
 };
 
-export const onCreateAlarm = async values => {
-  const response = await axios.post(ALARMS_URL, { "description": values });
+export const onCreateAlarm = async (description, category) => {
+  const response = await axios.post(ALARMS_URL,
+    { "description": description, "category": category });
 
   return {
     type: actionTypes.CREATE_ALARM,
@@ -46,6 +47,7 @@ export const onSearchLogs = (searchTerm, logs) => {
   const filteredLogs = logs.filter(log => {
     return log.alarmDeviceId.description.match(regex);
   });
+
   return {
     type: actionTypes.SEARCH_LOGS,
     payload: filteredLogs

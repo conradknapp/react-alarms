@@ -5,48 +5,52 @@ import { Field, reduxForm } from "redux-form";
 import { onCreateAlarm } from '../actions';
 
 class AlarmForm extends React.Component {
-  state = {
-    inputValue: ""
-  };
+  state = {};
 
   myInput = ({ input, meta: { touched, error }}) => {
-    const inputClass = touched && error ? "invalid" : "valid";
+    const inputClass = touched && error ? "alarm-input__invalid" : "alarm-input__valid";
     return (
       <React.Fragment>
-      <input
-        className={inputClass}
-        type="text"
-        onChange={this.handleInputChange}
-        {...input}
-      />
-      <button
-        disabled={this.state.validationErrors}
-        type="submit"
-      >
-        Add Alarm
-      </button>
-      {touched ? error && <p>{error}</p> : ""}
+        <input
+          className={inputClass}
+          type="text"
+          {...input}
+        />
+        <button
+          disabled={this.state.validationErrors}
+          type="submit"
+        >
+          Add Alarm
+        </button>
+        {touched ? error && <p className="alarm-input__error-message">{error}</p> : ""}
+        <div onChange={this.handleInputChange}>
+          <input type="radio" name="category" value="window" /> Window
+          <input type="radio" name="category" value="door" /> Door
+          <input type="radio" name="category" value="fence" /> Fence
+        </div>
       </React.Fragment>
     )
   }
 
   handleInputChange = evt => {
-    const inputValue = evt.target.value;
-    this.setState({ inputValue });
+    this.setState({
+      [evt.target.name]: evt.target.value
+    });
   }
 
-  onFormSubmit = evt => {
+  handleFormSubmit = evt => {
     evt.persist();
     evt.preventDefault();
-    const { inputValue } = this.state;
-    this.props.onCreateAlarm(inputValue);
+    const { description, category } = this.state;
+    this.props.onCreateAlarm(description, category);
     evt.target.reset();
   }
 
   render() {
     return (
-      <form onSubmit={this.props.handleSubmit(this.onFormSubmit)}>
+      <form onSubmit={this.handleFormSubmit}>
         <Field
+          onChange={this.handleInputChange}
           name="description"
           placeholder="Add Description"
           component={this.myInput}
