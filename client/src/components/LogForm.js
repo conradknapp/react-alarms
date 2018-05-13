@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import debounce from "lodash.debounce";
 
 import { onSearchLogs } from '../actions';
 
-class LogForm extends Component {
+class LogForm extends React.Component {
   render() {
     const { onSearchLogs, logs, handleInputChange, searchTerm } = this.props;
     const debounceSearch = debounce(() => onSearchLogs(searchTerm, logs), 750);
