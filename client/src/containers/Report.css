@@ -89,7 +89,7 @@
 }
 
 @media (max-width: 480px) {
-  .table-header {
+  .table-row > * {
     font-size: 0.9rem;
   }
   .table-header__alert,
