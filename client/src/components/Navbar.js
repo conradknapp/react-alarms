@@ -10,8 +10,8 @@ const Navbar = () => {
         <h2 className="navbar-tagline">Peace of mind, whether you're at home or away</h2>
       </span>
       <span className="navbar-span">
-        <li><Link className="navbar-link" to="/">Home</Link></li>
-        <li><Link className="navbar-link" to="/report">Log Report</Link></li>
+        <li><Link className="navbar-home-link" to="/">Home</Link></li>
+        <li><Link className="navbar-report-link" to="/report">Log Report</Link></li>
       </span>
      </ul>
    </nav>

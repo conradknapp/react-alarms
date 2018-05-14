@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Sort from './Sort';
-// import sortBy from 'lodash.sortby';
 
 import { onFetchLogs, onSortLogs } from '../actions';
 import { formatDate } from '../helpers';
@@ -45,7 +44,7 @@ class LogTable extends React.Component {
           <Sort logs={LOGS} sortKey={"ALERT"}
           className="table-header__alert" onSort={this.onSort}>Alert Device Triggered</Sort>
           <Sort logs={LOGS} sortKey={"DATE"} className="table-header__created-date" onSort={this.onSort}>Created Date</Sort>
-          <Sort logs={LOGS} sortKey={"ID"} className="table-header__id" onSort={this.onSort}>Id</Sort>
+          <Sort logs={LOGS} sortKey={"ID"} className="table-header__id" onSort={this.onSort}>Alarm Id</Sort>
         </div>
       {LOGS.map(log => (
         <div key={log._id} className="table-row">

@@ -375,7 +375,6 @@ ul {
 .navbar,
 .navbar-span {
   font-family: MagnetoBold;
-  font-size: 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -389,6 +388,11 @@ ul {
   font-family: sans-serif;
   margin-right: 1em;
   font-size: 1.2rem;
+}
+
+/**/
+.navbar-home-link {
+  display: none;
 }
 
 .navbar-logo {
@@ -406,8 +410,45 @@ ul {
   font-weight: 100;
   font-size: 1.1rem;
   letter-spacing: 3px;
+  display: none;
 }
 
 .navbar-link:hover {
   color: gainsboro;
+}
+
+/* Media Queries */
+
+@media (min-width: 200px) {
+  .navbar-logo {
+    font-size: 1.4rem;
+    white-space: nowrap;
+  }
+  .navbar-span > * {
+    font-size: 0.8rem;
+  }
+}
+@media (min-width: 400px) {
+  .navbar-logo {
+    font-size: 2rem;
+    white-space: nowrap;
+  }
+  .navbar-span > * {
+    font-size: 1.2em;
+  }
+}
+
+@media (min-width: 840px) {
+  .navbar-logo {
+    font-size: 2.5rem;
+  }
+  .navbar-tagline {
+    display: block;
+  }
+  .navbar-home-link {
+    display: inline;
+  }
+  .navbar-span > * {
+    font-size: 1.5rem;
+  }
 }

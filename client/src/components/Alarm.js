@@ -43,7 +43,7 @@ class Alarm extends React.Component {
 
   render() {
     const { description, id, category, alerts } = this.props;
-    console.log(this.props);
+
     return (
       <li className="alarm">
         <img
