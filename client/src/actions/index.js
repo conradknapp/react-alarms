@@ -1,4 +1,5 @@
 import axios from "axios";
+import sortBy from 'lodash.sortby';
 
 import * as actionTypes from "./types";
 
@@ -55,6 +56,15 @@ export const onSearchLogs = (searchTerm, logs) => {
 
   return {
     type: actionTypes.SEARCH_LOGS,
+    payload: filteredLogs
+  };
+}
+
+export const onSortLogs = (logs, prop) => {
+  const filteredLogs = sortBy(logs, prop);
+
+  return {
+    type: actionTypes.SORT_LOGS,
     payload: filteredLogs
   };
 }

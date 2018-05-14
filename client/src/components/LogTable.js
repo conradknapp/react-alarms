@@ -1,21 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Sort from './Sort';
-import sortBy from 'lodash.sortby';
+// import sortBy from 'lodash.sortby';
 
-import { onFetchLogs } from '../actions';
+import { onFetchLogs, onSortLogs } from '../actions';
 import { formatDate } from '../helpers';
-
-const SORTS = {
-  DESC: list => sortBy(list, "alarmDeviceId.description"),
-  ALERT: list => sortBy(list, "alertDeviceId.description"),
-  DATE: list => sortBy(list, "createdDate").reverse(),
-  ID: list => sortBy(list, "_id").reverse(),
-};
 
 class LogTable extends React.Component {
   state = {
-    updatedLogs: null
+    DESC: list => this.props.onSortLogs(list, "alarmDeviceId.description"),
+    ALERT: list => this.props.onSortLogs(list, "alertDeviceId.description"),
+    DATE: list => this.props.onSortLogs(list, "createdDate"),
+    ID: list => this.props.onSortLogs(list, "_id")
   };
 
   componentDidMount() {
@@ -34,14 +30,7 @@ class LogTable extends React.Component {
     return output;
   }
 
-  onSort = (sortKey, logs) => {
-    const sortedList = SORTS[sortKey](logs);
-    if (sortedList) {
-      this.setState({
-        updatedLogs: sortedList
-      });
-    }
-  }
+  onSort = (sortKey, logs) => this.state[sortKey](logs);
 
   render() {
     const { logs, filteredLogs } = this.props;
@@ -58,7 +47,7 @@ class LogTable extends React.Component {
           <Sort logs={LOGS} sortKey={"DATE"} className="table-header__created-date" onSort={this.onSort}>Created Date</Sort>
           <Sort logs={LOGS} sortKey={"ID"} className="table-header__id" onSort={this.onSort}>Id</Sort>
         </div>
-      {(this.state.updatedLogs ? this.state.updatedLogs : LOGS).map(log => (
+      {LOGS.map(log => (
         <div key={log._id} className="table-row">
           <span className="table-row__description">{log.alarmDeviceId.description}</span>
           <span className="table-row__alert">{log.alertDeviceId.description}</span>
@@ -73,4 +62,4 @@ class LogTable extends React.Component {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps, { onFetchLogs })(LogTable);
+export default connect(mapStateToProps, { onFetchLogs, onSortLogs })(LogTable);
