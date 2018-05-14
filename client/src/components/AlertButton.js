@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactTooltip from 'react-tooltip'
 
 const Alert = ({ handleActivateAlarm, description, category }) => {
   const stovePipesButtons = () => {
@@ -12,10 +13,12 @@ const Alert = ({ handleActivateAlarm, description, category }) => {
   return (fenceWindowDoorButtons() || stovePipesButtons()) && (
     <button onClick={handleActivateAlarm}>
       <img
+        data-tip={`Trigger ${description} alert`}
         className="alarm-button__icon"
         src={`./icons/${description}.svg`}
         alt={`${description} icon`}
       />
+    <ReactTooltip place="top" type="dark" effect="float"/>
     </button>
   );
 };
