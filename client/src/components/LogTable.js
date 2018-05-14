@@ -1,11 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Sort from './Sort';
+import sortBy from 'lodash.sortby';
 
 import { onFetchLogs } from '../actions';
 import { formatDate } from '../helpers';
 
+const SORTS = {
+  DESC: list => sortBy(list, "alarmDeviceId.description"),
+  ALERT: list => sortBy(list, "alertDeviceId.description"),
+  DATE: list => sortBy(list, "createdDate").reverse(),
+  ID: list => sortBy(list, "_id").reverse(),
+};
+
 class LogTable extends React.Component {
+  state = {
+    updatedLogs: null
+  };
+
   componentDidMount() {
     this.props.onFetchLogs();
   }
@@ -22,6 +34,15 @@ class LogTable extends React.Component {
     return output;
   }
 
+  onSort = (sortKey, logs) => {
+    const sortedList = SORTS[sortKey](logs);
+    if (sortedList) {
+      this.setState({
+        updatedLogs: sortedList
+      });
+    }
+  }
+
   render() {
     const { logs, filteredLogs } = this.props;
     const LOGS = filteredLogs.length ? filteredLogs : logs;
@@ -31,13 +52,13 @@ class LogTable extends React.Component {
       <div className="table">
       {this.displayResultsCount()}
         <div className="table-header">
-          <Sort logs={LOGS} sortKey={"DESC"} className="table-header__description">Alarm Name</Sort>
+          <Sort logs={LOGS} sortKey={"DESC"} className="table-header__description" onSort={this.onSort}>Alarm Name</Sort>
           <Sort logs={LOGS} sortKey={"ALERT"}
-          className="table-header__alert">Alert Device Triggered</Sort>
-          <Sort logs={LOGS} sortKey={"DATE"} className="table-header__created-date">Created Date</Sort>
-          <Sort logs={LOGS} sortKey={"ID"} className="table-header__id">Id</Sort>
+          className="table-header__alert" onSort={this.onSort}>Alert Device Triggered</Sort>
+          <Sort logs={LOGS} sortKey={"DATE"} className="table-header__created-date" onSort={this.onSort}>Created Date</Sort>
+          <Sort logs={LOGS} sortKey={"ID"} className="table-header__id" onSort={this.onSort}>Id</Sort>
         </div>
-      {LOGS.map(log => (
+      {(this.state.updatedLogs ? this.state.updatedLogs : LOGS).map(log => (
         <div key={log._id} className="table-row">
           <span className="table-row__description">{log.alarmDeviceId.description}</span>
           <span className="table-row__alert">{log.alertDeviceId.description}</span>

@@ -4,18 +4,6 @@
   text-align: center;
 }
 
-/* Tagline.js */
-
-.app-tagline {
-  background: lightskyblue;
-  padding: 1em;
-}
-
-.app-tagline__header {
-  font-style: italic;
-  font-weight: 100;
-}
-
 /* Alarm.js */
 
 .alarm {
@@ -28,7 +16,7 @@
 }
 
 .alarm-icon {
-  opacity: 0.4;
+  opacity: 0.5;
   filter: grayscale(100%);
 }
 
@@ -39,7 +27,7 @@
 /* AlarmForm.js */
 
 .alarm-form {
-  background: lightgray;
+  background: rgba(65, 65, 65, 0.2);
   padding: 1em;
 }
 
@@ -51,7 +39,7 @@
 }
 
 .alarm-form__valid {
-  border: 1px solid lawngreen;
+  border: 1px solid black;
 }
 
 .alarm-form__invalid {
@@ -84,7 +72,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   align-items: stretch;
-  background: rgba(85, 107, 47, 0.2);
+  background: rgba(85, 107, 47, 0.3);
 }
 
 /* Media Queries */

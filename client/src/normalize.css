@@ -395,6 +395,10 @@ ul {
   margin: 0;
 }
 
+.navbar-logo:hover {
+  color: gainsboro;
+}
+
 .navbar-tagline {
   margin: 0;
   font-style: italic;
@@ -402,4 +406,8 @@ ul {
   font-weight: 100;
   font-size: 1.1rem;
   letter-spacing: 3px;
+}
+
+.navbar-link:hover {
+  color: gainsboro;
 }
