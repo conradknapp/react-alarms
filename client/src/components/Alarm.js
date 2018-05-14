@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Alert from './Alert';
+import AlertButton from './AlertButton';
 import { onCreateLog, onFetchAlerts } from '../actions';
 
 class Alarm extends React.Component {
@@ -43,7 +43,7 @@ class Alarm extends React.Component {
 
   render() {
     const { description, id, category, alerts } = this.props;
-
+    console.log(this.props);
     return (
       <li className="alarm">
         <img
@@ -53,15 +53,14 @@ class Alarm extends React.Component {
         />
         <h3>{description}</h3>
         <div>
-        {alerts.map(alert =>
-          <Alert
-            key={alert._id}
-            description={alert.description}
-            id={alert._id}
-            category={category}
-            handleActivateAlarm={() => this.handleActivateAlarm(id, alert._id)}
-          />)}
-         {/* <Alert handleActivateAlarm={() => this.handleActivateAlarm(id)}/> */}
+          {alerts.map(alert =>
+            <AlertButton
+              key={alert._id}
+              description={alert.description}
+              category={category}
+              handleActivateAlarm={() => this.handleActivateAlarm(id, alert._id)}
+            />
+          )}
           {/* {(category === "door" || "window") && <button onClick={() => this.handleActivateAlarm(id)}>
             <img className="alarm-button__icon" src="./icons/fire.svg" alt="" />
           </button>}
