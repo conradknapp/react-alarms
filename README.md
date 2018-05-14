@@ -1,5 +1,7 @@
 # React Alarms
 
+Running at https://react-alarms.herokuapp.com
+
 ## Client Details
 
 ### Structure
@@ -9,9 +11,15 @@
 * Separates components into two folders: _components_ (components visible in the UI) and _containers_ (components that simply hold the presentational components/state)
 * Tests located in \_tests\_ folder
 
+* Redux files located in actions/reducers folders
+* Uses the combineReducers function to map the result of the individual reducers to props and to combine those to a single state object
+
+* Contains a small helpers folder/file for doing things like formatting dates
+
 ### Styling
 
 * Replaces original index.css content with Normalize.css
+* Uses BEM syntax for styles (everything that needs to be styled assigned one descriptive class)
 
 ## Server Details
 

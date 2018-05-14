@@ -88,7 +88,10 @@
   }
 }
 
-@media (max-width: 580px) {
+@media (max-width: 480px) {
+  .table-header {
+    font-size: 0.9rem;
+  }
   .table-header__alert,
   .table-row__alert {
     display: none;
