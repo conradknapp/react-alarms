@@ -372,16 +372,20 @@ ul {
     url("./fonts/MagnetoBold.svg#MagnetoBold") format("svg");
 }
 
-.navbar,
-.navbar-span {
+.navbar {
   font-family: MagnetoBold;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   margin: 0;
   padding: 1em 2em;
   background: #000;
   color: white;
+}
+
+.navbar-span {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .navbar-span > * {
@@ -390,7 +394,6 @@ ul {
   font-size: 1.2rem;
 }
 
-/**/
 .navbar-home-link {
   display: none;
 }
@@ -421,11 +424,11 @@ ul {
 
 @media (min-width: 200px) {
   .navbar-logo {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     white-space: nowrap;
   }
   .navbar-span > * {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
 }
 @media (min-width: 400px) {
